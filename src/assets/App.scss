@@ -1,0 +1,292 @@
+@use "/src/assets/variables";
+
+.wrapper {
+  min-width: 320px;
+}
+
+.intro-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  .intro-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 6rem);
+    text-align: center;
+    .profile-img-box {
+      margin-bottom: 2.4rem;
+      img {
+        width: 80%;
+      }
+    }
+    .name {
+      font-size: 4rem;
+      letter-spacing: 0.6rem;
+    }
+    .title {
+      font-size: 5.2rem;
+      letter-spacing: 1.2rem;
+    }
+    .tagline {
+      margin-top: 3.2rem;
+      font-size: 1.8rem;
+      color: variables.$shadow-color;
+    }
+  }
+  .copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    color: variables.$shadow-color;
+  }
+}
+
+.profile-container {
+  display: flex;
+  height: 100vh;
+  margin-top: 100vh;
+  position: relative;
+  z-index: 1;
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-color: variables.$black-color;
+    .profile-box {
+      .profile-img-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20rem;
+        height: 20rem;
+        margin-bottom: 4rem;
+        background-color: variables.$white-color;
+        border-radius: 50%;
+        img {
+          width: 40%;
+        }
+      }
+      .title {
+        font-size: 3.2rem;
+      }
+      .profile-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 2.4rem;
+        li {
+          padding-left: 1.2rem;
+          position: relative;
+          color: variables.$white-color;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.4rem;
+            height: 0.4rem;
+            background-color: variables.$white-color;
+          }
+        }
+      }
+      .my-link {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 4.8rem;
+        > a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.8rem;
+          height: 4rem;
+          padding: 0 1.2rem;
+          font-weight: 600;
+          border: 1px solid variables.$border-gray-color;
+          border-radius: 0.8rem;
+          &::before {
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            background: no-repeat 50% 50% / 2rem;
+          }
+          &.github-btn {
+            &::before {
+              background-image: url("/images/github_icon.svg");
+            }
+          }
+          &.notion-btn {
+            background-color: variables.$white-color;
+            color: variables.$black-color;
+            &::before {
+              background-image: url("/images/notion_icon.svg");
+            }
+          }
+        }
+      }
+    }
+  }
+  .profile-detail {
+    width: 70%;
+    height: 100%;
+    padding: 6rem;
+    background-color: variables.$white-color;
+    color: variables.$black-color;
+    .title {
+      margin-bottom: 2rem;
+      font-size: 3.2rem;
+    }
+    > div {
+      padding-bottom: 2.4rem;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    .skill {
+      min-height: 25%;
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.4rem;
+        font-weight: 500;
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.8rem;
+          .icon-box {
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            text-align: center;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+    .career {
+      min-height: 25%;
+      .career-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        li {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+          .company {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            .employment-period {
+              font-size: 1.6rem;
+              font-weight: 500;
+            }
+          }
+          .history {
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+    .portfolio {
+      min-height: 50%;
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            aspect-ratio: 16 / 9;
+            border-radius: 0.8rem;
+            overflow: hidden;
+            > a {
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              .portfolio-detail {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.8rem;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: opacity 0.3s;
+                .name {
+                  font-size: 1.8rem;
+                  font-weight: 600;
+                }
+              }
+              &:hover {
+                .portfolio-detail {
+                  opacity: 1;
+                  transition: opacity 0.3s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    hr {
+      margin-bottom: 2rem;
+      border: none;
+      border-top: 1px solid;
+      border-color: variables.$black-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    height: auto;
+    .profile {
+      width: 100%;
+      min-height: 200px;
+      padding: 0 3%;
+      .profile-box {
+        display: flex;
+        gap: 2.4rem;
+        .profile-img-box {
+          width: 16rem;
+          height: 16rem;
+          margin-bottom: 0;
+        }
+        .profile-list {
+          gap: 0.8rem;
+          margin-top: 1.2rem;
+          li {
+            padding-left: 1.2rem;
+          }
+        }
+        .my-link {
+          margin-top: 2.4rem;
+        }
+      }
+    }
+    .profile-detail {
+      width: 100%;
+      padding: 5%;
+      .title {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
