@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import PreparingPortfolio from "./PreparingPortfolio";
 
 const technologyStack = [
   {
@@ -40,6 +41,23 @@ const technologyStack = [
     id: 8,
     icon: "/images/vuetify_icon.svg",
     name: "Vuetify3"
+  }
+];
+
+const portfolioList = [
+  {
+    id: 1,
+    thumbnail: "what_movie_thumbnail.png",
+    url: "https://what-movie-six.vercel.app/",
+    name: "What Movie?",
+    description: "영화 정보 사이트"
+  },
+  {
+    id: 2,
+    thumbnail: "",
+    url: "",
+    name: "",
+    description: ""
   }
 ];
 
@@ -140,33 +158,26 @@ const ProfileContainer = () => {
               }
             }}
           >
-            <SwiperSlide>
-              <a href="">
-                <img src="/images/test_img1.jpg" />
-                <div className="portfolio-detail">
-                  <p className="name">포트폴리오 이름</p>
-                  <p className="description">포트폴리오 설명</p>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="">
-                <img src="/images/test_img2.jpg" />
-                <div className="portfolio-detail">
-                  <p className="name">포트폴리오 이름</p>
-                  <p className="description">포트폴리오 설명</p>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="">
-                <img src="/images/test_img1.jpg" />
-                <div className="portfolio-detail">
-                  <p className="name">포트폴리오 이름</p>
-                  <p className="description">포트폴리오 설명</p>
-                </div>
-              </a>
-            </SwiperSlide>
+            {portfolioList.map((portfolio) =>
+              portfolio.url ? (
+                <SwiperSlide key={portfolio.id}>
+                  <a href={portfolio.url}>
+                    <img
+                      src={`/images/${portfolio.thumbnail}`}
+                      alt={portfolio.name}
+                    />
+                    <div className="portfolio-detail">
+                      <p className="name">{portfolio.name}</p>
+                      <p className="description">{portfolio.description}</p>
+                    </div>
+                  </a>
+                </SwiperSlide>
+              ) : (
+                <SwiperSlide key={portfolio.id}>
+                  <PreparingPortfolio />
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
       </div>
