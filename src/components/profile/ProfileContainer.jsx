@@ -48,7 +48,7 @@ const portfolioList = [
   {
     id: 1,
     thumbnail: "what_movie_thumbnail.png",
-    url: "https://what-movie-six.vercel.app/",
+    url: "https://what-movie-gold.vercel.app/",
     name: "What Movie?",
     description: "영화 정보 사이트"
   },
