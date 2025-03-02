@@ -8,7 +8,6 @@ const IntroContainer = () => {
         <h3 className="name">KIM DAE SIK</h3>
         <h2 className="title">PORTFOLIO</h2>
         <p className="tagline">고민이 많기에, 더 나은 방향을 찾는다.</p>
-        <p>vercel연결 테스트1</p>
       </div>
       <p className="copyright">Copyright © K DAESIK All rights reserved</p>
     </div>
